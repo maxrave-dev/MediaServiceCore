@@ -1,7 +1,8 @@
-apply from: '../../SharedModules/constants.gradle'
+apply from: '../SharedModules/constants.gradle'
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.liskovsoft.mediaserviceinterfaces"
     compileSdkVersion project.ext.compileSdkVersion
     buildToolsVersion project.ext.buildToolsVersion
     testOptions.unitTests.includeAndroidResources = true

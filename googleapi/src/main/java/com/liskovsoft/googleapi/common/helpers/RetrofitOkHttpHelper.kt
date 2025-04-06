@@ -58,12 +58,12 @@ internal object RetrofitOkHttpHelper {
     private fun addCommonHeaders(builder: OkHttpClient.Builder) {
         builder.addInterceptor { chain ->
             val request = chain.request()
-            val headers = request.headers()
+            val headers = request.headers
             val requestBuilder = request.newBuilder()
 
             applyHeaders(RetrofitOkHttpHelper.headers, headers, requestBuilder)
 
-            val url = request.url().toString()
+            val url = request.url.toString()
 
             if (Helpers.startsWithAny(url, *apiPrefixes)) {
                 if (authHeaders.isEmpty() || skipAuthNums > 0) {
@@ -96,7 +96,7 @@ internal object RetrofitOkHttpHelper {
     }
 
     private fun applyQueryKeys(keys: Map<String, String>, request: Request, builder: Request.Builder) {
-        val originUrl = request.url()
+        val originUrl = request.url
 
         var newUrlBuilder: HttpUrl.Builder? = null
 
@@ -107,7 +107,7 @@ internal object RetrofitOkHttpHelper {
                     newUrlBuilder = originUrl.newBuilder()
                 }
 
-                newUrlBuilder?.addQueryParameter(entry.key, entry.value)
+                newUrlBuilder.addQueryParameter(entry.key, entry.value)
             }
         }
 

@@ -1,8 +1,9 @@
-apply from: '../../SharedModules/constants.gradle'
+apply from: '../SharedModules/constants.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.liskovsoft.googleapi"
     compileSdkVersion project.ext.compileSdkVersion
     buildToolsVersion project.ext.buildToolsVersion
     testOptions.unitTests.includeAndroidResources = true

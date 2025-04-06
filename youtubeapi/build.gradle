@@ -1,8 +1,9 @@
-apply from: '../../SharedModules/constants.gradle'
+apply from: '../SharedModules/constants.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.liskovsoft.youtubeapi"
     compileSdkVersion project.ext.compileSdkVersion
     buildToolsVersion project.ext.buildToolsVersion
     testOptions.unitTests.includeAndroidResources = true
@@ -83,12 +84,12 @@ dependencies {
     // Add kotlin support libs
     implementation 'androidx.core:core-ktx:' + kotlinCoreXVersion
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:' + kotlinVersion
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:' + kotlinVersion
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:' + kotlinxVersion
 
     // https://github.com/florianingerl/com.florianingerl.util.regex
     implementation 'com.github.florianingerl.util:regex:1.1.11'
 
     // NewPipe pot
-    implementation 'androidx.webkit:webkit:1.11.0' // Latest with Android 4.4 support
+    implementation 'androidx.webkit:webkit:1.13.0' // Latest with Android 4.4 support
     implementation 'com.grack:nanojson:1.7'
 }

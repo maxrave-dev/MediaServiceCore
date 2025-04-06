@@ -315,16 +315,16 @@ internal class PoTokenWebView private constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .map { response ->
-                    val httpCode = response.code()
+                    val httpCode = response.code
                     if (httpCode != 200) {
                         throw PoTokenException("Invalid response code: $httpCode")
                     }
 
-                    if (response.body() == null) {
+                    if (response.body == null) {
                         throw PoTokenException("Response body is empty. Response code: $httpCode")
                     }
 
-                    response.body()?.let {
+                    response.body?.let {
                         return@map it.string()
                     }
                 }
